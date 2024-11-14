@@ -5,6 +5,20 @@ const clear = () =>{ // функция очистки значений при н
     result = false;
     output.textContent = '0';
 }
+const plus_minus = () =>{ // функция для кнопки +/-
+    if (a !=='' && b === '') {
+        a = -a
+        output.textContent = a
+    }
+    else{
+
+        b = -b
+        output.textContent = b
+
+    }
+   console.log(a,b)
+    
+}
 
 
 const numbers = (event) => { //функция для рассчёта и обработки нажатых кнопок
@@ -15,7 +29,9 @@ const numbers = (event) => { //функция для рассчёта и обр�
     if (event.target.classList.contains('ac')) { // если нажата кнопка ac выход из функции и запуск ф-ии очистки
         return;
     }
-    
+    if (event.target.classList.contains('plus-minus')) { // если нажата кнопка ac выход из функции и запуск ф-ии очистки
+        return;
+    }
 
     const key = event.target.textContent
     output.textContent = ''
@@ -109,5 +125,6 @@ let result = false;
 
 //реализация работы кнопки 'ac'
 document.querySelector('.ac').addEventListener('click', clear)
+document.querySelector('.plus-minus').addEventListener('click', plus_minus)
 
 buttons.addEventListener('click', numbers) // создание обработчика нажатия кнопок
